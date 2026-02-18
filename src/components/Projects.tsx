@@ -30,6 +30,8 @@ interface ProjectCardProps {
     implementations: readonly string[];
     troubleshooting?: readonly string[];
     highlight?: string;
+    links?: readonly { label: string; href: string }[];
+    notice?: string;
   };
   index: number;
   implementationLabel: string;
@@ -133,6 +135,33 @@ function ProjectCard({ project, index, implementationLabel, troubleshootingLabel
                   <p className="text-sm text-accent bg-accent/5 border border-accent/20 rounded-md px-4 py-2.5">
                     {project.highlight}
                   </p>
+                )}
+
+                {project.notice && (
+                  <p className="text-[11px] text-muted italic">
+                    {project.notice}
+                  </p>
+                )}
+
+                {project.links && project.links.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-md border border-border hover:border-accent hover:text-accent transition-colors"
+                      >
+                        {link.label}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
                 )}
               </div>
             </motion.div>

@@ -92,7 +92,7 @@ const en: Translations = {
       {
         label: "Hands-on Experience",
         description: "Learned and applied as needed",
-        skills: ["Jenkins", "FastAPI", "React", "Deep Learning"],
+        skills: ["Jenkins", "FastAPI", "React", "PostgreSQL", "Deep Learning"],
       },
     ],
     certificatesLabel: "Certificates",
@@ -127,6 +127,11 @@ const en: Translations = {
           "Long Transaction separation reduced DB connection hold time from 5 min → 50ms (99% reduction)",
         ],
         highlight: "Deployed MVP to production in 2 weeks, iteratively improved through real user feedback loops",
+        links: [
+          { label: "App Store", href: "https://apps.apple.com/kr/app/리드잇-ai-맞춤형-영어-학습/id6754702442" },
+          { label: "Blog", href: "https://velog.io/@seongm1n/series/ReadIt" },
+        ],
+        notice: "Source code is private, as agreed upon with the team operating this service.",
       },
       {
         title: "CheerLot",
@@ -145,6 +150,11 @@ const en: Translations = {
         troubleshooting: [
           "Resolved external crawling blocking issue with @Async + CompletableFuture async pipeline",
         ],
+        links: [
+          { label: "GitHub", href: "https://github.com/CheerLotTeam" },
+          { label: "App Store", href: "https://apps.apple.com/kr/app/%EC%B3%90%EB%9E%8F-cheerlot/id6748527115" },
+          { label: "Notion", href: "https://thrilling-chatter-055.notion.site/cheerlot" },
+        ],
       },
       {
         title: "Challenger",
@@ -160,6 +170,10 @@ const en: Translations = {
           "Integrated AI-powered challenge recommendation & analysis with Spring AI",
           "Built zero-downtime release pipeline with Blue-Green deployment",
           "Full CI/CD automation with Jenkins — from code push to production deployment",
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/challenger-c2" },
+          { label: "Blog", href: "https://velog.io/@seongm1n/series/Challenger" },
         ],
       },
     ],

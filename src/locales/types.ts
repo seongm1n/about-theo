@@ -7,6 +7,11 @@ export interface ExperienceItem {
   details: string[];
 }
 
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface ProjectItem {
   title: string;
   subtitle: string;
@@ -18,6 +23,8 @@ export interface ProjectItem {
   implementations: string[];
   troubleshooting?: string[];
   highlight?: string;
+  links?: ProjectLink[];
+  notice?: string;
 }
 
 export interface Translations {

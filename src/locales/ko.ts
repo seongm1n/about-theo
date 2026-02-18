@@ -92,7 +92,7 @@ const ko: Translations = {
       {
         label: "프로젝트에 활용했습니다",
         description: "필요에 따라 학습하며 적용한 기술",
-        skills: ["Jenkins", "FastAPI", "React", "Deep Learning"],
+        skills: ["Jenkins", "FastAPI", "React", "PostgreSQL", "Deep Learning"],
       },
     ],
     certificatesLabel: "Certificates",
@@ -108,7 +108,7 @@ const ko: Translations = {
     troubleshootingLabel: "Troubleshooting",
     items: [
       {
-        title: "ReadIt (리딧)",
+        title: "ReadIt (리드잇)",
         subtitle: "AI 기반 맞춤형 영어 학습 플랫폼",
         period: "2025.09 ~",
         role: "백엔드 아키텍처 설계 및 전체 개발",
@@ -127,6 +127,11 @@ const ko: Translations = {
           "Long Transaction 분리 설계로 DB 커넥션 점유 시간 5분 → 50ms (99% 단축)",
         ],
         highlight: "MVP 2주 만에 프로덕션 배포, 실사용자 피드백 루프를 통한 데이터 기반 점진적 개선",
+        links: [
+          { label: "App Store", href: "https://apps.apple.com/kr/app/리드잇-ai-맞춤형-영어-학습/id6754702442" },
+          { label: "Blog", href: "https://velog.io/@seongm1n/series/ReadIt" },
+        ],
+        notice: "팀원들과 운영 중인 서비스로, 협의 후 코드는 비공개 처리했습니다.",
       },
       {
         title: "CheerLot (쳐랏)",
@@ -145,6 +150,11 @@ const ko: Translations = {
         troubleshooting: [
           "@Async + CompletableFuture 비동기 파이프라인으로 외부 크롤링 블로킹 이슈 해소",
         ],
+        links: [
+          { label: "GitHub", href: "https://github.com/CheerLotTeam" },
+          { label: "App Store", href: "https://apps.apple.com/kr/app/%EC%B3%90%EB%9E%8F-cheerlot/id6748527115" },
+          { label: "Notion", href: "https://thrilling-chatter-055.notion.site/cheerlot" },
+        ],
       },
       {
         title: "Challenger (챌린저)",
@@ -160,6 +170,10 @@ const ko: Translations = {
           "Spring AI를 활용한 챌린지 추천·분석 AI 기능 통합",
           "Blue-Green 배포 전략으로 Zero-downtime 릴리즈 파이프라인 구축",
           "Jenkins CI/CD 자동화 — 코드 푸시부터 프로덕션 배포까지 완전 자동화",
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/challenger-c2" },
+          { label: "Blog", href: "https://velog.io/@seongm1n/series/Challenger" },
         ],
       },
     ],

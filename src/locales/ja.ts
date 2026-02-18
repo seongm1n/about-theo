@@ -92,7 +92,7 @@ const ja: Translations = {
       {
         label: "プロジェクトで使用",
         description: "必要に応じて学習し適用した技術",
-        skills: ["Jenkins", "FastAPI", "React", "Deep Learning"],
+        skills: ["Jenkins", "FastAPI", "React", "PostgreSQL", "Deep Learning"],
       },
     ],
     certificatesLabel: "Certificates",
@@ -127,6 +127,11 @@ const ja: Translations = {
           "Long Transaction分離設計でDBコネクション占有時間 5分 → 50ms (99%短縮)",
         ],
         highlight: "MVP2週間でプロダクションデプロイ、実ユーザーフィードバックループによるデータ駆動型改善",
+        links: [
+          { label: "App Store", href: "https://apps.apple.com/kr/app/리드잇-ai-맞춤형-영어-학습/id6754702442" },
+          { label: "Blog", href: "https://velog.io/@seongm1n/series/ReadIt" },
+        ],
+        notice: "チームで運営中のサービスのため、協議の上ソースコードは非公開としています。",
       },
       {
         title: "CheerLot (チョラッ)",
@@ -145,6 +150,11 @@ const ja: Translations = {
         troubleshooting: [
           "@Async + CompletableFuture非同期パイプラインで外部クローリングブロッキング問題を解消",
         ],
+        links: [
+          { label: "GitHub", href: "https://github.com/CheerLotTeam" },
+          { label: "App Store", href: "https://apps.apple.com/kr/app/%EC%B3%90%EB%9E%8F-cheerlot/id6748527115" },
+          { label: "Notion", href: "https://thrilling-chatter-055.notion.site/cheerlot" },
+        ],
       },
       {
         title: "Challenger (チャレンジャー)",
@@ -160,6 +170,10 @@ const ja: Translations = {
           "Spring AIを活用したチャレンジ推薦・分析AI機能統合",
           "Blue-Greenデプロイ戦略でZero-downtimeリリースパイプライン構築",
           "Jenkins CI/CD自動化 — コードプッシュからプロダクションデプロイまで完全自動化",
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/challenger-c2" },
+          { label: "Blog", href: "https://velog.io/@seongm1n/series/Challenger" },
         ],
       },
     ],
