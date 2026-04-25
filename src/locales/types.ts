@@ -12,16 +12,25 @@ export interface ProjectLink {
   href: string;
 }
 
+export interface ProjectSolution {
+  title: string;
+  body: string;
+}
+
 export interface ProjectItem {
   title: string;
   subtitle: string;
   period: string;
   role: string;
-  team: string;
+  team?: string;
   status: string;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   stacks: string[];
-  implementations: string[];
-  troubleshooting?: string[];
+  problem?: string;
+  solutions?: ProjectSolution[];
+  results?: string[];
   highlight?: string;
   links?: ProjectLink[];
   notice?: string;
@@ -64,13 +73,14 @@ export interface Translations {
       skills: string[];
     }[];
     certificatesLabel: string;
-    certificates: { name: string; date: string }[];
+    certificates: { name: string; date?: string }[];
   };
   projects: {
     index: string;
     title: string;
-    implementationLabel: string;
-    troubleshootingLabel: string;
+    problemLabel: string;
+    solutionLabel: string;
+    resultLabel: string;
     items: ProjectItem[];
   };
   contact: {

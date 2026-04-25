@@ -17,21 +17,27 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "김성민 (Theo) | Backend Developer",
   description:
-    "문제 분석과 협업에 강한 백엔드 개발자 김성민(Theo)의 포트폴리오입니다. Spring Boot, AWS, Docker 기반의 백엔드 개발 경험을 소개합니다.",
+    "다양한 기술을 경험하며 중심을 잡아가는 중인 백엔드 개발자 김성민(Theo)의 포트폴리오입니다. Spring Boot, FastAPI, AI/ML, AWS, Kubernetes 기반의 풀스택 개발 경험을 소개합니다.",
   keywords: [
     "김성민",
+    "Kim SeongMin",
     "Theo",
     "백엔드 개발자",
     "Backend Developer",
+    "Full-stack Developer",
     "Spring Boot",
-    "Java",
+    "FastAPI",
+    "AI",
+    "Hugging Face",
+    "Kubernetes",
+    "AWS",
     "Portfolio",
   ],
   authors: [{ name: "김성민 (Theo)" }],
   openGraph: {
     title: "김성민 (Theo) | Backend Developer",
     description:
-      "문제 분석과 협업에 강한 백엔드 개발자 김성민(Theo)의 포트폴리오",
+      "다양한 기술을 경험하며 중심을 잡아가는 중인 백엔드 개발자 김성민(Theo)의 포트폴리오",
     url: "https://about-theo.vercel.app",
     siteName: "Theo Portfolio",
     locale: "ko_KR",
@@ -41,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "김성민 (Theo) | Backend Developer",
     description:
-      "문제 분석과 협업에 강한 백엔드 개발자 김성민(Theo)의 포트폴리오",
+      "다양한 기술을 경험하며 중심을 잡아가는 중인 백엔드 개발자 김성민(Theo)의 포트폴리오",
   },
   robots: {
     index: true,

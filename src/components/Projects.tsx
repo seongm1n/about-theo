@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 import { SectionHeader } from "./SectionHeader";
 import { useLanguage } from "./LanguageProvider";
+import type { ProjectItem } from "@/locales/types";
 
 const STATUS_STYLE: Record<string, string> = {
   "운영 중": "bg-green-500/10 text-green-500 dark:text-green-400",
@@ -19,32 +21,20 @@ const STATUS_STYLE: Record<string, string> = {
 };
 
 interface ProjectCardProps {
-  project: {
-    title: string;
-    subtitle: string;
-    period: string;
-    role: string;
-    team: string;
-    status: string;
-    stacks: readonly string[];
-    implementations: readonly string[];
-    troubleshooting?: readonly string[];
-    highlight?: string;
-    links?: readonly { label: string; href: string }[];
-    notice?: string;
-  };
+  project: ProjectItem;
   index: number;
-  implementationLabel: string;
-  troubleshootingLabel: string;
+  problemLabel: string;
+  solutionLabel: string;
+  resultLabel: string;
 }
 
-function ProjectCard({ project, index, implementationLabel, troubleshootingLabel }: ProjectCardProps) {
+function ProjectCard({ project, index, problemLabel, solutionLabel, resultLabel }: ProjectCardProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <ScrollReveal delay={index * 0.08}>
       <div
-        className="rounded-lg border border-border bg-surface hover:border-accent/40 transition-colors cursor-pointer"
+        className="rounded-lg border border-border bg-surface hover:border-accent/40 transition-colors cursor-pointer overflow-hidden"
         onClick={() => setExpanded(!expanded)}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") setExpanded(!expanded);
@@ -53,6 +43,19 @@ function ProjectCard({ project, index, implementationLabel, troubleshootingLabel
         tabIndex={0}
         aria-expanded={expanded}
       >
+        {project.image && project.imageWidth && project.imageHeight && (
+          <div className="bg-background border-b border-border">
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              width={project.imageWidth}
+              height={project.imageHeight}
+              className="w-full h-auto block"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+        )}
+
         <div className="p-5">
           <div className="flex items-center justify-between mb-1">
             <div className="flex items-center gap-3">
@@ -72,14 +75,18 @@ function ProjectCard({ project, index, implementationLabel, troubleshootingLabel
             </motion.svg>
           </div>
 
-          <p className="text-sm text-muted mb-3">{project.subtitle}</p>
+          <p className="text-sm text-muted mb-3 leading-relaxed">{project.subtitle}</p>
 
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono mb-3">
             <span>{project.period}</span>
             <span className="text-border">|</span>
             <span>{project.role}</span>
-            <span className="text-border">|</span>
-            <span>{project.team}</span>
+            {project.team && (
+              <>
+                <span className="text-border">|</span>
+                <span>{project.team}</span>
+              </>
+            )}
           </div>
 
           <div className="flex flex-wrap gap-1.5">
@@ -100,31 +107,47 @@ function ProjectCard({ project, index, implementationLabel, troubleshootingLabel
               transition={{ duration: 0.25 }}
               className="overflow-hidden"
             >
-              <div className="px-5 pb-5 pt-3 border-t border-border space-y-4">
-                <div>
-                  <h4 className="text-xs font-mono text-muted uppercase tracking-wider mb-2">
-                    {implementationLabel}
-                  </h4>
-                  <ul className="space-y-1.5">
-                    {project.implementations.map((impl, i) => (
-                      <li key={i} className="text-sm text-muted flex items-start gap-2 leading-relaxed">
-                        <span className="text-accent mt-2 shrink-0 text-[6px]">&#9679;</span>
-                        {impl}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {project.troubleshooting && project.troubleshooting.length > 0 && (
+              <div className="px-5 pb-5 pt-3 border-t border-border space-y-5">
+                {project.problem && (
                   <div>
                     <h4 className="text-xs font-mono text-muted uppercase tracking-wider mb-2">
-                      {troubleshootingLabel}
+                      {problemLabel}
+                    </h4>
+                    <p className="text-sm text-muted leading-relaxed">{project.problem}</p>
+                  </div>
+                )}
+
+                {project.solutions && project.solutions.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-mono text-muted uppercase tracking-wider mb-2">
+                      {solutionLabel}
+                    </h4>
+                    <ol className="space-y-3">
+                      {project.solutions.map((sol, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-accent/10 text-accent text-[11px] font-mono mt-0.5">
+                            {i + 1}
+                          </span>
+                          <div className="space-y-1">
+                            <p className="text-sm font-semibold leading-snug">{sol.title}</p>
+                            <p className="text-sm text-muted leading-relaxed">{sol.body}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+
+                {project.results && project.results.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-mono text-muted uppercase tracking-wider mb-2">
+                      {resultLabel}
                     </h4>
                     <ul className="space-y-1.5">
-                      {project.troubleshooting.map((ts, i) => (
+                      {project.results.map((res, i) => (
                         <li key={i} className="text-sm text-muted flex items-start gap-2 leading-relaxed">
-                          <span className="text-yellow-500 mt-2 shrink-0 text-[6px]">&#9679;</span>
-                          {ts}
+                          <span className="text-green-500 mt-2 shrink-0 text-[6px]">&#9679;</span>
+                          {res}
                         </li>
                       ))}
                     </ul>
@@ -132,7 +155,7 @@ function ProjectCard({ project, index, implementationLabel, troubleshootingLabel
                 )}
 
                 {project.highlight && (
-                  <p className="text-sm text-accent bg-accent/5 border border-accent/20 rounded-md px-4 py-2.5">
+                  <p className="text-sm text-accent bg-accent/5 border border-accent/20 rounded-md px-4 py-2.5 leading-relaxed">
                     {project.highlight}
                   </p>
                 )}
@@ -186,8 +209,9 @@ export function Projects() {
               key={i}
               project={project}
               index={i}
-              implementationLabel={t.projects.implementationLabel}
-              troubleshootingLabel={t.projects.troubleshootingLabel}
+              problemLabel={t.projects.problemLabel}
+              solutionLabel={t.projects.solutionLabel}
+              resultLabel={t.projects.resultLabel}
             />
           ))}
         </div>

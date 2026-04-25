@@ -45,7 +45,7 @@ export function Skills() {
                   className="text-xs font-mono px-2.5 py-1 rounded-md border border-border bg-surface"
                 >
                   {cert.name}
-                  <span className="text-muted ml-1.5">{cert.date}</span>
+                  {cert.date && <span className="text-muted ml-1.5">{cert.date}</span>}
                 </span>
               ))}
             </div>
